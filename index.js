@@ -4,7 +4,7 @@ document.querySelector('button.calculate').addEventListener('click', function(e)
     const num = steps + 1
     const sqrt5 = Math.sqrt(5);
     const alpha = (1 + sqrt5) / 2;
-    const beta = (1 - sqrt5) / 2;
+    const beta = (1 - sqrt5) / 2; 
     const gamma = alpha - beta;
     const result = Math.floor((alpha**num - beta**num)/gamma) 
     if(steps > 1) {
