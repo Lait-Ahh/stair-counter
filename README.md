@@ -4,3 +4,5 @@ Donnez le nombre de marche d'un escalier le programme vous combien il y de faço
 
 
 Le fichier allInOne.html correspond au 4 autres fichiers du projet dans un seul fichier .html
+
+Vous pourrez même trouver un svg d'escalier moche
