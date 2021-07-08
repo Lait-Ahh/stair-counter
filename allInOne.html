@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stair Countert</title>
+    <style>
+        @font-face {
+    font-family: Sen-regular;
+    src: url('Sen-Regular.ttf');
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: Sen-regular;
+}
+
+h1 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #ccb27a;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+form input {
+    margin: 10px 0 10px 0;
+    padding: 5px;
+    background: none;
+    border: none;
+    border-bottom: #292929 1px solid;
+    color: #585858;
+    font-size: 18px;
+    outline: none;
+}
+
+form button {
+    padding: 5px;
+    border: none;
+    background: #d3a239;
+    border-radius: 6px;
+    outline: none;
+}
+
+form button:hover {
+    background: #825e11;
+    cursor: pointer;
+    transition-duration: 200ms;
+    color: #fff;
+}
+
+div.result {
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+a {
+    color: #d33939;
+    text-decoration: none;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <h1>Stair counter</h1>
+    <form>
+        <label for="steps">Nombre de marches :</label>
+        <input type="number" min="1" value="1" id="steps">
+        <button class="calculate">Calculer</button>
+    </form>
+    <div class="result">by <a href="https://github.com/Lait-Ahh">Lait-Ahh</a></div>
+</body>
+<script type="text/javascript">
+document.querySelector('button.calculate').addEventListener('click', function(e) {
+    e.preventDefault();
+    const steps = parseInt(document.querySelector('input[type="number"]').value);
+    var counter = [0, 0];
+    for(let i = 0; i < steps; i++) {
+        if(i === 0 || i === 1) {
+            counter = [1, 2];
+        } else {
+            var temp = counter[0] + counter[1];
+            counter[0] = counter[1];
+            counter[1] = temp;
+        }
+    }
+    if(steps > 1) {
+        document.querySelector('div.result').innerHTML = `Il à ${counter[1]} façons de monter un escalier de ${steps} marches`;  
+    } else {
+        document.querySelector('div.result').innerHTML = `Il à une façons de monter un escalier de 1 marche`;
+    }
+});
+</script>
+</html>
